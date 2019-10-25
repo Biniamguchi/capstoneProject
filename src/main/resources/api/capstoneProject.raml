@@ -1,0 +1,60 @@
+#%RAML 1.0
+baseUri: https://anypoint.mulesoft.com/mocking/api/v1/links/ab88d25d-1ba2-4b58-bf0d-171aaaed07ac/ # 
+version: v1
+title: capstoneProject
+
+types:
+ user: !include DataType/userswithid.raml
+
+/users:
+  description: "All Users"
+  get:
+    description: "Get the list of all users"
+    responses:
+      200:
+        body:
+          application/json:
+            type: user[]                                     
+            example: !include GET_ALL_USERS.raml
+  /{id}:
+    description: gets users by id
+    get:
+      responses:
+        200:
+          body:
+            application/json:  
+              type: user[]                                 
+              example: !include GET_ALL_USERS.raml
+                   
+  post:
+    description: "Add a user to the list of users"
+    body:
+      application/json:
+        example: !include POST_USER_REQUEST.raml
+    responses:
+      200:
+        body:
+          application/json:
+            type: user[]            
+            example: !include GET_ALL_USERS.raml
+  put:
+    description: "Update a User"
+    body:
+      application/json:        
+        example: !include PUT_USER_REQUEST.raml
+    responses:
+      200:
+        body:
+          application/json:                       
+            example: !include PUT_USER_REQUEST.raml               
+  delete:
+    responses:
+      200:
+        body:
+          application/json:
+            example: !include GET_ALL_USERS.raml
+      400:
+        body:
+          application/json:            
+            example: !include USER_NOT_FOUND.raml
+            

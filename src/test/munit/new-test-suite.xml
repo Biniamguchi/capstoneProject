@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:munit="http://www.mulesoft.org/schema/mule/munit" xmlns:munit-tools="http://www.mulesoft.org/schema/mule/munit-tools"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xsi:schemaLocation="
+		http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+		http://www.mulesoft.org/schema/mule/munit http://www.mulesoft.org/schema/mule/munit/current/mule-munit.xsd
+		http://www.mulesoft.org/schema/mule/munit-tools  http://www.mulesoft.org/schema/mule/munit-tools/current/mule-munit-tools.xsd">
+	<munit:config name="new-test-suite.xml" />
+	<munit:test name="new-test-suite-capstoneProject-mainTest" doc:id="57933849-31d8-458f-88a1-5ac1c507bf79" description="Test">
+		<munit:execution >
+			<munit:set-event doc:name="Set Event" doc:id="754855a8-5dc6-4b24-937e-8160b77e1926" cloneOriginalEvent="true">
+				<munit:payload value="#[payload]" mediaType="application/xml" />
+			</munit:set-event>
+			<flow-ref doc:name="Flow-ref to capstoneProject-main" doc:id="07f5e2c1-653a-411d-8be2-f6bc34a7d035" name="capstoneProject-main"/>
+		</munit:execution>
+		<munit:validation>
+			<munit-tools:assert-that doc:name="Assert that" doc:id="864485af-2604-4ec1-bc51-54197ae457f9" expression="#[payload]" is="#[MunitTools::notNullValue()]"/>
+		</munit:validation>
+	</munit:test>
+	<munit:test name="new-test-suite-capstoneProject-consoleTest" doc:id="4d4c6f12-e917-4860-b89d-1be0358f3589" description="Test">
+		<munit:execution >
+			<flow-ref doc:name="Flow-ref to capstoneProject-console" doc:id="fff501e3-c250-4de7-be61-a70e5c43b0cf" name="capstoneProject-console"/>
+		</munit:execution>
+	</munit:test>
+	<munit:test name="new-test-suite-put:\users:capstoneProject-configTest" doc:id="ef529a10-ea56-4cd8-b370-81532a663ec9" description="Test">
+		<munit:execution >
+			<flow-ref doc:name="Flow-ref to put:\users:capstoneProject-config" doc:id="e9c17ac3-7b26-4c70-9df4-5c25a731fef9" name="put:\users:capstoneProject-config"/>
+		</munit:execution>
+	</munit:test>
+	<munit:test name="new-test-suite-delete:\users:capstoneProject-configTest" doc:id="a6f270f1-cc7f-4095-aac1-78a9201c5f2b" description="Test">
+		<munit:execution >
+			<flow-ref doc:name="Flow-ref to delete:\users:capstoneProject-config" doc:id="33c9004c-340d-4f0f-a22c-0ad61f052ba2" name="delete:\users:capstoneProject-config"/>
+		</munit:execution>
+	</munit:test>
+	<munit:test name="new-test-suite-get:\users:capstoneProject-configTest" doc:id="7c50d358-14e6-40cc-b572-e248dfa372b2" description="Test">
+		<munit:execution >
+			<flow-ref doc:name="Flow-ref to get:\users:capstoneProject-config" doc:id="51dc7397-aa0f-4071-94c9-44d6cde88f2a" name="get:\users:capstoneProject-config"/>
+		</munit:execution>
+	</munit:test>
+	<munit:test name="new-test-suite-get:\users\(id):capstoneProject-configTest" doc:id="bb64f12e-6524-4498-90ba-727c07273e14" description="Test">
+		<munit:execution >
+			<flow-ref doc:name="Flow-ref to get:\users\(id):capstoneProject-config" doc:id="e56eb88e-88f7-4bbf-b115-75ffe50cd897" name="get:\users\(id):capstoneProject-config"/>
+		</munit:execution>
+	</munit:test>
+	<munit:test name="new-test-suite-post:\users:capstoneProject-configTest" doc:id="faa123b6-2cf4-4f6b-9d5b-44db05042c6a" description="Test">
+		<munit:execution >
+			<flow-ref doc:name="Flow-ref to post:\users:capstoneProject-config" doc:id="0cb106fe-e43a-4a5a-9284-3976ebc4a47f" name="post:\users:capstoneProject-config"/>
+		</munit:execution>
+	</munit:test>
+
+
+</mule>
